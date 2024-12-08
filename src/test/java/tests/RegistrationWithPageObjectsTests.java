@@ -32,7 +32,6 @@ public class RegistrationWithPageObjectsTests extends TestBase {
 
                 .checkSuccessRegistration()
                 .checkSuccessfulMassage("Thanks for submitting the form")
-
                 .checkResult("Student Name", "Ivan Petrov")
                 .checkResult("Student Email", "ivan_petrov1978@mail.ru")
                 .checkResult("Gender", "Male")
@@ -59,7 +58,6 @@ public class RegistrationWithPageObjectsTests extends TestBase {
 
                 .checkSuccessRegistration()
                 .checkSuccessfulMassage("Thanks for submitting the form")
-
                 .checkResult("Student Name", "Ivan Petrov")
                 .checkResult("Gender", "Male")
                 .checkResult("Mobile", "0123456789");
