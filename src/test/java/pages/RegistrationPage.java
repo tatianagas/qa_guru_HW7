@@ -138,6 +138,12 @@ public class RegistrationPage {
         return this;
     }
 
+    public RegistrationPage checkUnsuccessRegistration() {
+        modalComponent.isNotVisible();
+
+        return this;
+    }
+
 
     public RegistrationPage checkSuccessfulMassage(String value) {
         modalComponent.checkModalTitle(value);

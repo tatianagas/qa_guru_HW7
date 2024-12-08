@@ -13,7 +13,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
 
     @Test
-    void successfulRegistrationTest() {
+    void fillWholeFormRegistrationTest() {
         registrationPage.openPage()
                 .removeBanner()
                 .setFirstName("Ivan")
@@ -45,4 +45,41 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .checkResult("State and City", "NCR Delhi");
 
     }
+
+    @Test
+    void minFillFormRegistrationTest() {
+
+        registrationPage.openPage()
+                .removeBanner()
+                .setFirstName("Ivan")
+                .setLastName("Petrov")
+                .setGender("Male")
+                .setUserNumber("0123456789")
+                .submit()
+
+                .checkSuccessRegistration()
+                .checkSuccessfulMassage("Thanks for submitting the form")
+
+                .checkResult("Student Name", "Ivan Petrov")
+                .checkResult("Gender", "Male")
+                .checkResult("Mobile", "0123456789");
+
+    }
+
+    @Test
+    void shortPhoneNumberFormRegistrationTest() {
+
+        registrationPage.openPage()
+                .removeBanner()
+                .setFirstName("Ivan")
+                .setLastName("Petrov")
+                .setGender("Male")
+                .setUserNumber("012345678")
+                .submit()
+
+                .checkUnsuccessRegistration();
+
+    }
 }
+
+
