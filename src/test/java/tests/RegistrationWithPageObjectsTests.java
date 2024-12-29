@@ -1,7 +1,7 @@
 package tests;
 
+import jdk.jfr.Description;
 import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
@@ -11,6 +11,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
 
     @Test
+    @Description("Полностью заполненная форма для успешной регистрации")
     void fillWholeFormRegistrationTest() {
         registrationPage.openPage()
                 .removeBanner()
@@ -44,6 +45,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
     }
 
     @Test
+    @Description("Минимально заполненная форма для успешной регистрации")
     void minFillFormRegistrationTest() {
 
         registrationPage.openPage()
@@ -63,6 +65,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
     }
 
     @Test
+    @Description("Неуспешно заполненная форма регистрации — невалидный телефонный номер")
     void shortPhoneNumberFormRegistrationTest() {
 
         registrationPage.openPage()
